@@ -1,0 +1,6 @@
+framework module Pods_PickiTTicket {
+  umbrella header "Pods-PickiTTicket-umbrella.h"
+
+  export *
+  module * { export * }
+}

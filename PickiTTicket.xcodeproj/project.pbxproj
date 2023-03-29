@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8046AF31898D29C954C0853B /* Pods_PickiTTicket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7F91EC65AC3F1AF13D824C /* Pods_PickiTTicket.framework */; };
+		8558940F29731932002C2286 /* DeviceBarcodeScannerViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558940E29731932002C2286 /* DeviceBarcodeScannerViewContrller.swift */; };
+		85589412297329C7002C2286 /* pickedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85589410297329C7002C2286 /* pickedItemTableViewCell.swift */; };
+		85589413297329C7002C2286 /* pickedItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85589411297329C7002C2286 /* pickedItemTableViewCell.xib */; };
+		855DDE1B2996832500E931EE /* CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DDE1A2996832500E931EE /* CustomAlerts.swift */; };
+		856F056029895F65001F0502 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F055F29895F65001F0502 /* HomeScreenViewController.swift */; };
+		856F056229896035001F0502 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F056129896035001F0502 /* DetailViewController.swift */; };
+		85AB0F9329889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0F9129889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodeld */; };
+		85E25E82297351990097C6F3 /* DeviceBarcodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E25E81297351990097C6F3 /* DeviceBarcodeModel.swift */; };
+		85E25E84297351AC0097C6F3 /* DeviceBarcodeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E25E83297351AC0097C6F3 /* DeviceBarcodeData.swift */; };
+		85E25E86297351BE0097C6F3 /* DeviceBarcodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E25E85297351BE0097C6F3 /* DeviceBarcodeManager.swift */; };
+		85F404072971A0BB00EC5EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F404062971A0BB00EC5EDB /* AppDelegate.swift */; };
+		85F404092971A0BB00EC5EDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F404082971A0BB00EC5EDB /* SceneDelegate.swift */; };
+		85F4040B2971A0BB00EC5EDB /* DeviceBarcodeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F4040A2971A0BB00EC5EDB /* DeviceBarcodeListViewController.swift */; };
+		85F4040E2971A0BB00EC5EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85F4040C2971A0BB00EC5EDB /* Main.storyboard */; };
+		85F404102971A0BD00EC5EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F4040F2971A0BD00EC5EDB /* Assets.xcassets */; };
+		85F404132971A0BD00EC5EDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85F404112971A0BD00EC5EDB /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		24F857DEBBEF398BD8F8A0B3 /* Pods-PickiTTicket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickiTTicket.debug.xcconfig"; path = "Target Support Files/Pods-PickiTTicket/Pods-PickiTTicket.debug.xcconfig"; sourceTree = "<group>"; };
+		3E1352004727F3E3A9A30F44 /* Pods-PickiTTicket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickiTTicket.release.xcconfig"; path = "Target Support Files/Pods-PickiTTicket/Pods-PickiTTicket.release.xcconfig"; sourceTree = "<group>"; };
+		8558940E29731932002C2286 /* DeviceBarcodeScannerViewContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBarcodeScannerViewContrller.swift; sourceTree = "<group>"; };
+		85589410297329C7002C2286 /* pickedItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickedItemTableViewCell.swift; sourceTree = "<group>"; };
+		85589411297329C7002C2286 /* pickedItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = pickedItemTableViewCell.xib; sourceTree = "<group>"; };
+		855DDE1A2996832500E931EE /* CustomAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlerts.swift; sourceTree = "<group>"; };
+		855EAFC42974AD680010FAEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		856F055F29895F65001F0502 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		856F056129896035001F0502 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		85AB0F9229889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DeviceBarcodeModelDataModel.xcdatamodel; sourceTree = "<group>"; };
+		85E25E81297351990097C6F3 /* DeviceBarcodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBarcodeModel.swift; sourceTree = "<group>"; };
+		85E25E83297351AC0097C6F3 /* DeviceBarcodeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBarcodeData.swift; sourceTree = "<group>"; };
+		85E25E85297351BE0097C6F3 /* DeviceBarcodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBarcodeManager.swift; sourceTree = "<group>"; };
+		85F404032971A0BB00EC5EDB /* PickiTTicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickiTTicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85F404062971A0BB00EC5EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		85F404082971A0BB00EC5EDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		85F4040A2971A0BB00EC5EDB /* DeviceBarcodeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBarcodeListViewController.swift; sourceTree = "<group>"; };
+		85F4040D2971A0BB00EC5EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		85F4040F2971A0BD00EC5EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85F404122971A0BD00EC5EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		85F404142971A0BD00EC5EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE7F91EC65AC3F1AF13D824C /* Pods_PickiTTicket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickiTTicket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85F404002971A0BB00EC5EDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8046AF31898D29C954C0853B /* Pods_PickiTTicket.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E7384321114FF22492D4258 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24F857DEBBEF398BD8F8A0B3 /* Pods-PickiTTicket.debug.xcconfig */,
+				3E1352004727F3E3A9A30F44 /* Pods-PickiTTicket.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		856F055A29895AB4001F0502 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85AB0F9129889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodeld */,
+				85E25E83297351AC0097C6F3 /* DeviceBarcodeData.swift */,
+				85E25E81297351990097C6F3 /* DeviceBarcodeModel.swift */,
+				85E25E85297351BE0097C6F3 /* DeviceBarcodeManager.swift */,
+				855DDE1A2996832500E931EE /* CustomAlerts.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		856F055B29895AC8001F0502 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				85F404112971A0BD00EC5EDB /* LaunchScreen.storyboard */,
+				85589411297329C7002C2286 /* pickedItemTableViewCell.xib */,
+				85589410297329C7002C2286 /* pickedItemTableViewCell.swift */,
+				85F4040C2971A0BB00EC5EDB /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		856F055C29895AD6001F0502 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				856F055F29895F65001F0502 /* HomeScreenViewController.swift */,
+				85F4040A2971A0BB00EC5EDB /* DeviceBarcodeListViewController.swift */,
+				8558940E29731932002C2286 /* DeviceBarcodeScannerViewContrller.swift */,
+				856F056129896035001F0502 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		85F403FA2971A0BB00EC5EDB = {
+			isa = PBXGroup;
+			children = (
+				85F404052971A0BB00EC5EDB /* PickiTTicket */,
+				85F404042971A0BB00EC5EDB /* Products */,
+				4E7384321114FF22492D4258 /* Pods */,
+				B28EED92E01A9D54428D8F00 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		85F404042971A0BB00EC5EDB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85F404032971A0BB00EC5EDB /* PickiTTicket.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85F404052971A0BB00EC5EDB /* PickiTTicket */ = {
+			isa = PBXGroup;
+			children = (
+				856F055B29895AC8001F0502 /* View */,
+				856F055C29895AD6001F0502 /* Controller */,
+				856F055A29895AB4001F0502 /* Model */,
+				85F404062971A0BB00EC5EDB /* AppDelegate.swift */,
+				85F404082971A0BB00EC5EDB /* SceneDelegate.swift */,
+				85F4040F2971A0BD00EC5EDB /* Assets.xcassets */,
+				85F404142971A0BD00EC5EDB /* Info.plist */,
+			);
+			path = PickiTTicket;
+			sourceTree = "<group>";
+		};
+		B28EED92E01A9D54428D8F00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE7F91EC65AC3F1AF13D824C /* Pods_PickiTTicket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85F404022971A0BB00EC5EDB /* PickiTTicket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85F404172971A0BD00EC5EDB /* Build configuration list for PBXNativeTarget "PickiTTicket" */;
+			buildPhases = (
+				017554A788046921DB4E6A9D /* [CP] Check Pods Manifest.lock */,
+				85F403FF2971A0BB00EC5EDB /* Sources */,
+				85F404002971A0BB00EC5EDB /* Frameworks */,
+				85F404012971A0BB00EC5EDB /* Resources */,
+				31F90D06D16A65266B024D61 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PickiTTicket;
+			productName = PickiTTicket;
+			productReference = 85F404032971A0BB00EC5EDB /* PickiTTicket.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85F403FB2971A0BB00EC5EDB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					85F404022971A0BB00EC5EDB = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 85F403FE2971A0BB00EC5EDB /* Build configuration list for PBXProject "PickiTTicket" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 85F403FA2971A0BB00EC5EDB;
+			productRefGroup = 85F404042971A0BB00EC5EDB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85F404022971A0BB00EC5EDB /* PickiTTicket */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85F404012971A0BB00EC5EDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85F404132971A0BD00EC5EDB /* LaunchScreen.storyboard in Resources */,
+				85F404102971A0BD00EC5EDB /* Assets.xcassets in Resources */,
+				85589413297329C7002C2286 /* pickedItemTableViewCell.xib in Resources */,
+				85F4040E2971A0BB00EC5EDB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		017554A788046921DB4E6A9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PickiTTicket-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		31F90D06D16A65266B024D61 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickiTTicket/Pods-PickiTTicket-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickiTTicket/Pods-PickiTTicket-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PickiTTicket/Pods-PickiTTicket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85F403FF2971A0BB00EC5EDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85E25E82297351990097C6F3 /* DeviceBarcodeModel.swift in Sources */,
+				85AB0F9329889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodeld in Sources */,
+				85F4040B2971A0BB00EC5EDB /* DeviceBarcodeListViewController.swift in Sources */,
+				855DDE1B2996832500E931EE /* CustomAlerts.swift in Sources */,
+				85E25E86297351BE0097C6F3 /* DeviceBarcodeManager.swift in Sources */,
+				856F056229896035001F0502 /* DetailViewController.swift in Sources */,
+				85589412297329C7002C2286 /* pickedItemTableViewCell.swift in Sources */,
+				85F404072971A0BB00EC5EDB /* AppDelegate.swift in Sources */,
+				85F404092971A0BB00EC5EDB /* SceneDelegate.swift in Sources */,
+				85E25E84297351AC0097C6F3 /* DeviceBarcodeData.swift in Sources */,
+				8558940F29731932002C2286 /* DeviceBarcodeScannerViewContrller.swift in Sources */,
+				856F056029895F65001F0502 /* HomeScreenViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		85F4040C2971A0BB00EC5EDB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85F4040D2971A0BB00EC5EDB /* Base */,
+				855EAFC42974AD680010FAEF /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		85F404112971A0BD00EC5EDB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85F404122971A0BD00EC5EDB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85F404152971A0BD00EC5EDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		85F404162971A0BD00EC5EDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85F404182971A0BD00EC5EDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F857DEBBEF398BD8F8A0B3 /* Pods-PickiTTicket.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5YDCT984CV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PickiTTicket/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"camera permission test\"";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = UpstateInovations.PickiTTicket;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		85F404192971A0BD00EC5EDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E1352004727F3E3A9A30F44 /* Pods-PickiTTicket.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5YDCT984CV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PickiTTicket/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"camera permission test\"";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = UpstateInovations.PickiTTicket;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85F403FE2971A0BB00EC5EDB /* Build configuration list for PBXProject "PickiTTicket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85F404152971A0BD00EC5EDB /* Debug */,
+				85F404162971A0BD00EC5EDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85F404172971A0BD00EC5EDB /* Build configuration list for PBXNativeTarget "PickiTTicket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85F404182971A0BD00EC5EDB /* Debug */,
+				85F404192971A0BD00EC5EDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		85AB0F9129889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				85AB0F9229889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodel */,
+			);
+			currentVersion = 85AB0F9229889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodel */;
+			path = DeviceBarcodeModelDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 85F403FB2971A0BB00EC5EDB /* Project object */;
+}

@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; configuration.title = "Send List"; ObjectID = "Els-f1-MHp"; */
+"Els-f1-MHp.configuration.title" = "Send List";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Els-f1-MHp"; */
+"Els-f1-MHp.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "January 14th, 2023"; ObjectID = "Lzs-Uj-Gzo"; */
+"Lzs-Uj-Gzo.text" = "January 14th, 2023";
+
+/* Class = "UILabel"; text = "Total Items:  0"; ObjectID = "Y6I-9E-jJQ"; */
+"Y6I-9E-jJQ.text" = "Total Items:  0";
+
+/* Class = "UINavigationItem"; title = "PickIt 📦"; ObjectID = "ivU-5P-fHn"; */
+"ivU-5P-fHn.title" = "PickIt 📦";
+
+/* Class = "UIButton"; configuration.title = "Scan Item"; ObjectID = "pg1-tE-Gbv"; */
+"pg1-tE-Gbv.configuration.title" = "Scan Item";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "pg1-tE-Gbv"; */
+"pg1-tE-Gbv.normalTitle" = "Button";
