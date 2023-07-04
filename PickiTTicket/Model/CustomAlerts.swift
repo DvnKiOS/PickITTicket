@@ -23,51 +23,11 @@ public func customEntry() {
         showCloseButton: false
    )
 
-//
-//
-//
-//
-//
-//
-//
-//    let alertView = SCLAlertView(appearance: appearance)
-//    let medicationName = alertView.addTextField()
-//    medicationName.placeholder = "Vancomycin"
-//    medicationName.layer.borderColor = UIColor.yellow.cgColor
-//    medicationName.layer.borderWidth = 3
-//
-//
-//
-//
-//    //medicationName.
-//    let AmountPicked = alertView.addTextField()
-//    AmountPicked.placeholder = "25"
-//
-//
-//    let medicationBrand = alertView.addTextField()
-//    medicationBrand.placeholder = "BD"
-////
-////    let newItem = MedicationTestModel(medicationName: String(medicationName.text!), medicationBrand: String(medicationBrand.text!), amountPicked: String(AmountPicked.text!))
-////    testMedicationList.append(newItem)
-////    print(testMedicationList.count)
-//
-//
-//
-//    alertView.addButton("Done"){
-//        print("Medication Name: \(medicationName.text!), Amount Picked: \(AmountPicked.text!), Medication Brand: \(medicationBrand.text!)")
-//}
-//
-//
-//    alertView.showSuccess("Button View", subTitle: "This alert view has buttons")
-//    alertView.showEdit("Edit your current entry", subTitle: "")
-    
-    
-    
-    
-    
 
-    // Example of using the view to add two text fields to the alert
-    // Create the subview
+    
+    
+  
+  
    
 
     // Initialize SCLAlertView using custom Appearance
@@ -83,6 +43,7 @@ public func customEntry() {
     label1.text = "Medication:"
     label1.textAlignment = .left
     label1.font = UIFont(name: "Thonburi-Bold", size: 10)
+    label1.textColor = .black
     subview.addSubview(label1)
 
     let textfield1 = UITextField(frame: CGRectMake(x + 90, 10, 90, 25))
@@ -121,6 +82,7 @@ public func customEntry() {
     textfield3.layer.borderColor = UIColor.systemYellow.cgColor
     textfield3.layer.borderWidth = 1.5
     textfield3.layer.cornerRadius = 5
+    textfield3.textColor = .black
   
     textfield3.placeholder = "BD"
     textfield3.textAlignment = NSTextAlignment.center

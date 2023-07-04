@@ -1,16 +1,20 @@
 PODS:
+  - EmptyDataSet-Swift (5.0.0)
   - SCLAlertView (0.8)
 
 DEPENDENCIES:
+  - EmptyDataSet-Swift (~> 5.0.0)
   - SCLAlertView
 
 SPEC REPOS:
   trunk:
+    - EmptyDataSet-Swift
     - SCLAlertView
 
 SPEC CHECKSUMS:
+  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
 
-PODFILE CHECKSUM: dd8a3bf41b6e5fdfc266f583ade4b3d619e4030d
+PODFILE CHECKSUM: d85d3151b9c245289fe8b8c8823ff288a26fce8e
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0

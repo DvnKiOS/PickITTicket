@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4B5BFAEEFFD3422076EC5A66304B6F79"
-               BuildableName = "Pods_PickiTTicket.framework"
-               BlueprintName = "Pods-PickiTTicket"
+               BlueprintIdentifier = "B5AB76607FAE66C0A637C8241113BBDE"
+               BuildableName = "EmptyDataSet_Swift.framework"
+               BlueprintName = "EmptyDataSet-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

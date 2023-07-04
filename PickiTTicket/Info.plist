@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>PickIT requires access to your device&apos;s camera to scan barcodes to help manage your pharmacy&apos;s inventory. This allows the app to quickly and accurately capture barcode information and keep track of what has been removed, ensuring that your inventory is always accurate. Your privacy is important to us, we will never use your camera for any other purpose without your consent. </string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

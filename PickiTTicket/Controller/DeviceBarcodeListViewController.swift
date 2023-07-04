@@ -8,14 +8,16 @@
 import UIKit
 import CoreData
 import SCLAlertView
+ 
+
 
 
 //Mark: - HomeScreen
 
-class DeviceBarcodeListViewController: UIViewController {
+class DeviceBarcodeListViewController: UIViewController, UISearchControllerDelegate{
    
     
-    var pickedItems:  [DeviceBarcodeModel] = []  // -> we want the array of pickedItems to be an empty array of DeviceModel Objects
+    var pickedItems:  [DeviceBarcodeModel] = []  
     let entityName = "DevicebarcodeEntity"
 
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -40,26 +42,52 @@ class DeviceBarcodeListViewController: UIViewController {
     
     var pickedItemCell = "pickedItemCell"
     
-    
+   // let barcodeSearchController = UISearchController()
   
    
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let navigationController = navigationController {
+            navigationController.overrideUserInterfaceStyle = .light
+            navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            navigationController.navigationBar.prefersLargeTitles = true
+            
+        }
+
+       
+        
         scanButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         
 
         loadData()
         
 
-        self.navigationItem.title = "Device List💉"
         
+     
+        //navigationItem.searchController = barcodeSearchController
    
       
         
         pickListTableView.dataSource = self
         pickListTableView.delegate = self
+        
+        pickListTableView.isUserInteractionEnabled = true
+        pickListTableView.allowsSelection = false
+       
+        
+        //        tableView.emptyDataSetView { [weak self] view in
+        //            guard let `self` = self else { return }
+        //            view.customView(CustomView(frame: CGRect(x: 0, y: 0, width: 100, height: 100)))
+        //                .verticalOffset(50)
+        //                .buttonImage(nil, for: .disabled)
+        //        }
+        func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+               return NSAttributedString(string: "hahaha")
+           }
+      
+        
           
         scannerViewController.delegate = self
         
@@ -67,7 +95,7 @@ class DeviceBarcodeListViewController: UIViewController {
         pickListTableView.layer.cornerRadius = 10.0
         
         deviceBarcodeManager.delegate = self
-        
+      //  barcodeSearchController.delegate = self
         
         sendListButton.addShadow()
         sendListButton.layer.cornerRadius = 10.0
@@ -79,14 +107,31 @@ class DeviceBarcodeListViewController: UIViewController {
         pickListTableView.layer.cornerRadius = 10.0
         
         
-        totalItemsPickedLabel.text = (" Boxes Picked: \(pickedItems.count)")
-
-        totalItemsPickedLabel.text = "Boxes Picked: \(pickedItems.count)"
-       
+        totalItemsPickedLabel.text = (" Items Picked: \(pickedItems.count)")
+        
+        
+      animateNavigationTitle(titleText: "Device List")
+        
        
     
     }
-    
+    func animateNavigationTitle(titleText: String) {
+        var charIndex = 0.0
+        navigationItem.title = ""
+        for letter in titleText {
+            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer) in
+                self.navigationItem.title = self.navigationItem.title! + String(letter)
+            }
+            charIndex += 1
+        }
+    }
+    func customView(forEmptyDataSet scrollView: UIScrollView) -> UIView? {
+        let view = UIView (frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        return view
+    }
+
+   
+                
    
     
     
@@ -113,24 +158,7 @@ class DeviceBarcodeListViewController: UIViewController {
             
           }
       }
-    func sendTableViewData() {
-        let filename = "Device List: \(updateDateLabel()).csv"
-           let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(filename)
-           
-           var csvText = "Device Name   ,Manufacture   ,Total Picked   ,Barcode   \n"
-           for item in pickedItems {
-               csvText += "\(item.currentItemTitle)  ,\(item.manufactureName)  ,\(item.itemQuantity)  ,\(item.currentBarcode)  \n"
-           }
-           
-           do {
-               try csvText.write(to: path!, atomically: true, encoding: .utf16)
-           } catch {
-               print("Failed to write file")
-           }
-           
-           let activityViewController = UIActivityViewController(activityItems: [path!], applicationActivities: nil)
-           present(activityViewController, animated: true, completion: nil)
-       }
+
     
    
     
@@ -140,21 +168,60 @@ class DeviceBarcodeListViewController: UIViewController {
     
     @IBAction func sendPickListButton(_ sender: UIButton) {
         
-      
-        sendTableViewData()
+        if pickedItems.isEmpty {
+            let emptyAlert = SCLAlertView()
+            emptyAlert.showCustom("Test", subTitle: "testing one of these alerts", color: .black , icon: UIImage(named: "barcode")!)
+            return
+        }
+        let filename = "Device List: \(updateDateLabel()).csv"
+        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(filename)
         
-        
-        DispatchQueue.main.async {
-            self.refreshDeviceBarcodeTableView()
-            self.pickedItems = []  
-            self.pickListTableView.reloadData()
-            self.totalItemsPickedLabel.text = "Boxes Picked: \(self.pickedItems.count)"
-           
-            
+        var csvText = "Device Name   ,Manufacture   ,Total Picked   ,Barcode   \n"
+        for item in pickedItems {
+            csvText += "\(item.currentItemTitle)  ,\(item.manufactureName)  ,\(item.itemQuantity)  ,\(item.currentBarcode)  \n"
         }
         
-      
+        do {
+            try csvText.write(to: path!, atomically: true, encoding: .utf16)
+            let activityViewController = UIActivityViewController(activityItems: [path!], applicationActivities: nil)
+            activityViewController.completionWithItemsHandler = { [weak self] activityType, completed, _, error in
+                if let error = error {
+                    print("Activity failed: \(error.localizedDescription)")
+                    return
+                }
+                
+                if completed {
+                    DispatchQueue.main.async {
+                        self?.refreshDeviceBarcodeTableView()
+                        self?.pickedItems = []
+                        self?.pickListTableView.reloadData()
+                        self?.totalItemsPickedLabel.text = "Boxes Picked: \(self?.pickedItems.count ?? 0)"
+                    }
+                } else {
+                    let cancelAlert = SCLAlertView()
+                    cancelAlert.showCustom("Cancelled", subTitle: "Your list was not sent", color: .systemYellow, icon: UIImage(named: "syringe")!)
+
+                }
+            }
+            
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                // Use a popover presentation on iPad
+                activityViewController.modalPresentationStyle = .popover
+                activityViewController.popoverPresentationController?.sourceView =  sender
+                activityViewController.popoverPresentationController?.permittedArrowDirections = .down
+            } else {
+                // Use a modal presentation on iPhone
+                activityViewController.modalPresentationStyle = .fullScreen
+            }
+            
+            present(activityViewController, animated: true, completion: nil)
+            
+        } catch {
+            print("Failed to write file")
+            // ADD ERROR MESSAGE THAT THE USER IS ABLE TO SEE WITHIN OUR APPLICATION
+        }
     }
+
     
     
     @IBAction func addCustomPickItem(_ sender: UIBarButtonItem) {
@@ -169,16 +236,14 @@ class DeviceBarcodeListViewController: UIViewController {
     
     
     func updateDateLabel() -> String {
-       
         let today = Date.now
-        let formatter1 = DateFormatter()
-        formatter1.dateStyle = .medium
-        let formattedDate = (formatter1.string(from: today))
-        currentDateString = formattedDate
-    
-        
-        return(currentDateString)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.dateFormat = "MMM, yyyy"
+        let formattedDate = formatter.string(from: today)
+        return formattedDate
     }
+
     
     
     // Save the data to Core Data
@@ -221,11 +286,12 @@ class DeviceBarcodeListViewController: UIViewController {
 
                     pickedItems.append(deviceBarcodeModel)
                     pickListTableView.reloadData()
-                    totalItemsPickedLabel.text = "BoxesPicked: \(pickedItems.count)"
+                    totalItemsPickedLabel.text = "Items Picked: \(pickedItems.count)"
                 }
             }
         } catch let error as NSError {
             print("Error loading data: \(error.localizedDescription)")
+            //add error message that be seen within the application.
         }
     }
    
@@ -242,18 +308,13 @@ class DeviceBarcodeListViewController: UIViewController {
         do {
             try managedObjectContext.execute(batchDeleteRequest)
         } catch let error as NSError {
+            
+            //add error message that be be seen inside our application
             print("Error deleting data: \(error.localizedDescription)")
         }
     }
     
-//    func deleteItem(item: DeviceBarcodeModel){
-//        managedObjectContext.delete(item)
-//        do {
-//            try managedObjectContext.save()
-//        } catch {
-//            print("Error")
-//        }
-//    }
+   
  }
     
     
@@ -289,6 +350,11 @@ extension DeviceBarcodeListViewController: UITableViewDelegate, UITableViewDataS
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if pickedItems.count == 0 {
+            pickListTableView.setEmptyView(title: "Empty List", message: "Scan or add an item manually with the + button in the top right corrner ")
+        } else {
+            pickListTableView.restore()
+        }
         return pickedItems.count
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -322,7 +388,8 @@ extension DeviceBarcodeListViewController: UITableViewDelegate, UITableViewDataS
 
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in
             
-            var itemToEdit = self.pickedItems[indexPath.row]
+           
+            let itemToEdit = self.pickedItems[indexPath.row]
             
             
             let appearance = SCLAlertView.SCLAppearance(
@@ -334,14 +401,14 @@ extension DeviceBarcodeListViewController: UITableViewDelegate, UITableViewDataS
             
 
             let alert = SCLAlertView(appearance: appearance)
-           // let alertViewIcon = UIImage(named: "barcode")
-
+          
+            
             // Create the subview
             let subview = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
             let x = (subview.frame.width - 240) / 2
 
             let label1 = UILabel(frame: CGRect(x: x, y: 10, width: 90, height: 25))
-            label1.text = "Medication:"
+            label1.text = "Device Name:"
             label1.textAlignment = .left
             label1.font = UIFont(name: "Thonburi-Bold", size: 10)
             subview.addSubview(label1)
@@ -352,14 +419,14 @@ extension DeviceBarcodeListViewController: UITableViewDelegate, UITableViewDataS
                 textfield1.layer.borderWidth = 1.5
                 textfield1.layer.cornerRadius = 5
             }
-            textfield1.placeholder = "Cefepime"
+            textfield1.placeholder = "60ML Syringe"
             textfield1.textAlignment = .center
             subview.addSubview(textfield1)
 
             let label2 = UILabel(frame: CGRect(x: x, y: textfield1.frame.maxY + 10, width: 80, height: 25))
             label2.text = "Amount Picked:"
             label2.textAlignment = .left
-            label2.font = UIFont(name: "Thonburi-Bold", size: 10)
+            label2.font = UIFont(name: "Thonburi-Bold", size: 8)
             subview.addSubview(label2)
 
             let textfield2 = UITextField(frame: CGRect(x: x + 90, y: textfield1.frame.maxY + 10, width: 90, height: 25))
@@ -375,7 +442,7 @@ extension DeviceBarcodeListViewController: UITableViewDelegate, UITableViewDataS
             let label3 = UILabel(frame: CGRect(x: x, y: textfield2.frame.maxY + 10, width: 80, height: 25))
             label3.text = "Brand:"
             label3.textAlignment = .left
-            label3.font = UIFont(name: "Thonburi-Bold", size: 10)
+            label3.font = UIFont(name: "Thonburi-Bold", size: 8)
             subview.addSubview(label3)
 
             let textfield3 = UITextField(frame: CGRect(x: x + 90, y: textfield2.frame.maxY + 10, width: 90, height: 25))
@@ -414,9 +481,10 @@ extension DeviceBarcodeListViewController: UITableViewDelegate, UITableViewDataS
                 
                 if newDeviceName.isEmpty || amountPicked.isEmpty || deviceBrand.isEmpty {
                     let errorAlert = SCLAlertView()
-                    errorAlert.showError("ERROR", subTitle: "Test")
+                    errorAlert.showError("Error", subTitle: "Sorry, you can't leave any text fields empty. Please fill them out and try again.")
                     return
                 }
+            
                 print(newDeviceName)
                 print(amountPicked)
                 print(deviceBrand)
@@ -435,25 +503,22 @@ extension DeviceBarcodeListViewController: UITableViewDelegate, UITableViewDataS
                 } else {
                     // If the item doesn't exist, add it to the array
                   
-                    let newIndexPath = IndexPath(row: self.pickedItems.count - 1, section: 0)
+                    let newIndexPath = IndexPath(row: self.pickedItems.count, section: 0)
                     self.pickListTableView.insertRows(at: [newIndexPath], with: .automatic)
                 }
 
                 // Update the label showing the number of items in the array
-                self.totalItemsPickedLabel.text = "Boxes Picked: \(self.pickedItems.count)"
+                self.totalItemsPickedLabel.text = "Items Picked: \(self.pickedItems.count)"
 
                 self.deleteDeviceBarcodeObject(itemToEdit)
                 self.saveData(deviceBarcodeModel: itemToEdit)
                 // Save changes to the managed object context
-                do {
-                    try self.managedObjectContext.save()
-                } catch {
-                    print("Error saving managed object context: \(error)")
-                }
-                // Reload the edited row
-                let editedIndexPath = IndexPath(row: indexPath.row, section: 0)
-                self.pickListTableView.reloadRows(at: [editedIndexPath], with: .automatic)
               
+                // Reload the edited row
+          
+                self.pickListTableView.reloadRows(at: [indexPath], with: .automatic)
+                
+                
                 
             }
             
@@ -484,7 +549,7 @@ extension DeviceBarcodeListViewController: UITableViewDelegate, UITableViewDataS
             
         }
         editAction.backgroundColor = .systemGreen
-
+        
         let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { [self] (rowAction, indexPath) in
             let itemToDelete = pickedItems[indexPath.row]
                        
@@ -564,7 +629,7 @@ extension DeviceBarcodeListViewController: DeviceBarcodeManagerDelegate {
         
         
         let appearance = SCLAlertView.SCLAppearance(
-          kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
+          kTitleFont: UIFont(name: "HelveticaNeue", size: 15)!,
           kTextFont: UIFont(name: "HelveticaNeue", size: 8)!,
             kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 16)!,
             showCloseButton: false
@@ -579,9 +644,10 @@ extension DeviceBarcodeListViewController: DeviceBarcodeManagerDelegate {
         let x = (subview.frame.width - 240) / 2
 
         let label1 = UILabel(frame: CGRect(x: x, y: 10, width: 90, height: 25))
-        label1.text = "Medication:"
+        label1.text = "Device Name:"
         label1.textAlignment = .left
         label1.font = UIFont(name: "Thonburi-Bold", size: 10)
+        label1.textColor = .black
         subview.addSubview(label1)
 
         let textfield1 = UITextField(frame: CGRect(x: x + 90, y: 10, width: 90, height: 25))
@@ -589,15 +655,18 @@ extension DeviceBarcodeListViewController: DeviceBarcodeManagerDelegate {
             textfield1.layer.borderColor = UIColor.systemYellow.cgColor
             textfield1.layer.borderWidth = 1.5
             textfield1.layer.cornerRadius = 5
+            textfield1.textColor = .black
         }
-        textfield1.placeholder = "Cefepime"
+        textfield1.placeholder = "60ML Syringe"
         textfield1.textAlignment = .center
+        textfield1.textColor = .black
         subview.addSubview(textfield1)
 
         let label2 = UILabel(frame: CGRect(x: x, y: textfield1.frame.maxY + 10, width: 80, height: 25))
         label2.text = "Amount Picked:"
         label2.textAlignment = .left
         label2.font = UIFont(name: "Thonburi-Bold", size: 10)
+        label2.textColor = .black
         subview.addSubview(label2)
 
         let textfield2 = UITextField(frame: CGRect(x: x + 90, y: textfield1.frame.maxY + 10, width: 90, height: 25))
@@ -605,6 +674,7 @@ extension DeviceBarcodeListViewController: DeviceBarcodeManagerDelegate {
             textfield2.layer.borderColor = UIColor.systemYellow.cgColor
             textfield2.layer.borderWidth = 1.5
             textfield2.layer.cornerRadius = 5
+            textfield2.textColor = .black
         }
         textfield2.placeholder = "15"
         textfield2.textAlignment = .center
@@ -614,6 +684,7 @@ extension DeviceBarcodeListViewController: DeviceBarcodeManagerDelegate {
         label3.text = "Brand:"
         label3.textAlignment = .left
         label3.font = UIFont(name: "Thonburi-Bold", size: 10)
+        label3.textColor = .black
         subview.addSubview(label3)
 
         let textfield3 = UITextField(frame: CGRect(x: x + 90, y: textfield2.frame.maxY + 10, width: 90, height: 25))
@@ -621,6 +692,7 @@ extension DeviceBarcodeListViewController: DeviceBarcodeManagerDelegate {
             textfield3.layer.borderColor = UIColor.systemYellow.cgColor
             textfield3.layer.borderWidth = 1.5
             textfield3.layer.cornerRadius = 5
+            textfield3.textColor = .black
         }
         textfield3.placeholder = "BD"
         textfield3.textAlignment = .center
@@ -650,7 +722,8 @@ extension DeviceBarcodeListViewController: DeviceBarcodeManagerDelegate {
             
             if newDeviceName.isEmpty || amountPicked.isEmpty || deviceBrand.isEmpty {
                 let errorAlert = SCLAlertView()
-                errorAlert.showError("ERROR", subTitle: "Text Fields Can't Be Empty‼️")
+                errorAlert.showError( "Error", subTitle: "Text fields cannot be be empty.")
+
                 return
             }
             print(newDeviceName)
@@ -666,6 +739,10 @@ extension DeviceBarcodeListViewController: DeviceBarcodeManagerDelegate {
             self.totalItemsPickedLabel.text = "Boxes Picked: \(self.pickedItems.count)"
             self.scrollToBottom()
             
+            
+            //We need to implement the functionality to save our user Defaults information once the user had edited one of their entries
+            
+            
         }
         
   
@@ -678,7 +755,7 @@ extension DeviceBarcodeListViewController: DeviceBarcodeManagerDelegate {
             //print("Duration Button tapped")
         }
 
-        alert.showInfo("Devin", subTitle: "Hey, Hows the weather")
+        alert.showInfo("Custom Entry" , subTitle: "Add device details below")
     }
         
         
@@ -698,30 +775,25 @@ extension DeviceBarcodeListViewController: DeviceBarcodeManagerDelegate {
         let itemQuantity = barcode.itemQuantity
         let itemBrand = barcode.manufactureName
         let itemBarcode = barcode.currentBarcode
-        print(itemName)
-        print(itemQuantity)
-        print(itemBrand)
-        print(itemBarcode)
-        
 
-        let newItem = DeviceBarcodeModel(currentBarcode: itemBarcode, currentItemTitle: itemName, itemQuantity: itemQuantity, manufactureName: itemBrand)
-        print(newItem)
-        
-        DispatchQueue.main.async { [self] in
+        // Check if the item already exists in the array
+        if let existingItemIndex = pickedItems.firstIndex(where: { $0.currentBarcode == itemBarcode }) {
+            // Item exists, update the quantity
+            pickedItems[existingItemIndex].itemQuantity += itemQuantity
+        } else {
+            // Item does not exist, create a new entry
+            let newItem = DeviceBarcodeModel(currentBarcode: itemBarcode, currentItemTitle: itemName, itemQuantity: itemQuantity, manufactureName: itemBrand)
             pickedItems.append(newItem)
             saveData(deviceBarcodeModel: newItem)
+        }
+
+        DispatchQueue.main.async { [self] in
             pickListTableView.reloadData()
             scrollToBottom()
-           
-            totalItemsPickedLabel.text = "Boxes Picked: \(pickedItems.count)"
-         
-           
+            totalItemsPickedLabel.text = "Items Picked: \(pickedItems.count)"
         }
-      
-      
-
- 
     }
+
    
     
   
@@ -749,4 +821,34 @@ extension UIView {
 }
 
 
-
+extension UITableView {
+func setEmptyView(title: String, message: String) {
+let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
+let titleLabel = UILabel()
+let messageLabel = UILabel()
+titleLabel.translatesAutoresizingMaskIntoConstraints = false
+messageLabel.translatesAutoresizingMaskIntoConstraints = false
+titleLabel.textColor = UIColor.black
+titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+messageLabel.textColor = UIColor.lightGray
+messageLabel.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
+emptyView.addSubview(titleLabel)
+emptyView.addSubview(messageLabel)
+titleLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
+titleLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+messageLabel.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 20).isActive = true
+messageLabel.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -20).isActive = true
+titleLabel.text = title
+messageLabel.text = message
+messageLabel.numberOfLines = 0
+messageLabel.textAlignment = .center
+// The only tricky part is here:
+self.backgroundView = emptyView
+self.separatorStyle = .none
+}
+func restore() {
+self.backgroundView = nil
+self.separatorStyle = .singleLine
+}
+}

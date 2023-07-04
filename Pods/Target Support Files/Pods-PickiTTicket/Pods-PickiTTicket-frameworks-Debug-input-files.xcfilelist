@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-PickiTTicket/Pods-PickiTTicket-frameworks.sh
+${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework
 ${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework

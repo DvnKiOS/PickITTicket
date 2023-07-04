@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SCLAlertView
+
 protocol DeviceBarcodeManagerDelegate{
     func didUpdateDeviceBarcodeData(barcode: DeviceBarcodeModel)
 }
@@ -52,6 +54,11 @@ struct DeviceBarcodeManager {
             let task = session.dataTask(with: url) { data, response, error in
                 
                 if error != nil {
+                    DispatchQueue.main.async {
+                        let errorAlert = SCLAlertView()
+                            errorAlert.showInfo("Networking Error ", subTitle: "An internet connection is needed to fetch barcode information. Please try again later")
+                    }
+    
                     print(error!.localizedDescription)
                 } else {
                     if let safeBarcodeData = data {
@@ -123,7 +130,11 @@ struct DeviceBarcodeManager {
             
             return barcode
         } catch{
-            print(error)
+            DispatchQueue.main.async {
+                let barcodeErrorAlert = SCLAlertView()
+                 barcodeErrorAlert.showInfo("Error", subTitle: "Error Scanning Barcode, Wrong Barcode Format Scanned")
+            }
+           
             return nil
             
         }

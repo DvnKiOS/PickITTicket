@@ -6,6 +6,8 @@
 //
     import AVFoundation
     import UIKit
+    import SCLAlertView
+
 protocol ScannerViewControllerDelegate {
     func didScanBarcode(_ barcode: String)
 }
@@ -29,7 +31,7 @@ protocol ScannerViewControllerDelegate {
             super.viewDidLoad()
 
             view.backgroundColor = UIColor.black
-            view.layer.frame = CGRect(x: 0, y: 0, width: 375, height: 120)
+            view.layer.frame = CGRect(x: 0, y: 0, width: 400, height: 120)
             let secondView = UIView()
             view.addSubview(secondView)
             secondView.backgroundColor = .white
@@ -58,7 +60,7 @@ protocol ScannerViewControllerDelegate {
                 captureSession.addOutput(metadataOutput)
 
                 metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417, .upce,.code128,.code39, .code39Mod43, .code93, .qr, .dataMatrix]
+                metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417, .upce,.code128,.code39,  .code93,  .dataMatrix]
             } else {
                 failed()
                 return
@@ -75,6 +77,7 @@ protocol ScannerViewControllerDelegate {
         }
 
         func failed() {
+          
             let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
@@ -115,20 +118,7 @@ protocol ScannerViewControllerDelegate {
 
         func found(code: String) {
           
-//            let originalString = code
-//            let firstPart = originalString.prefix(5)
-//            let secondPartStart = originalString.index(originalString.startIndex, offsetBy: 5)
-//            let secondPartEnd = originalString.index(secondPartStart, offsetBy: 3)
-//            let secondPart = String(originalString[secondPartStart..<secondPartEnd])
-//            let thirdPart = originalString.suffix(2)
-//            let convertedString = "\(firstPart)-\(secondPart)-\(thirdPart)"
-//            print(convertedString)
-           
-            
-            
-            
-            
-//
+
             let deviceCode = code.dropFirst(2)
             
               let newDeviceBarcode = String(format: String(deviceCode))

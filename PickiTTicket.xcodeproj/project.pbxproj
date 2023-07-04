@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8046AF31898D29C954C0853B /* Pods_PickiTTicket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7F91EC65AC3F1AF13D824C /* Pods_PickiTTicket.framework */; };
+		8537C03B2A34C1E100503929 /* syringe.png in Resources */ = {isa = PBXBuildFile; fileRef = 8537C03A2A34C1E100503929 /* syringe.png */; };
+		8537C03D2A34C1EC00503929 /* barcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 8537C03C2A34C1EC00503929 /* barcode.png */; };
+		8537C0402A34C38700503929 /* DZNEmptyDataSet in Frameworks */ = {isa = PBXBuildFile; productRef = 8537C03F2A34C38700503929 /* DZNEmptyDataSet */; };
 		8558940F29731932002C2286 /* DeviceBarcodeScannerViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558940E29731932002C2286 /* DeviceBarcodeScannerViewContrller.swift */; };
 		85589412297329C7002C2286 /* pickedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85589410297329C7002C2286 /* pickedItemTableViewCell.swift */; };
 		85589413297329C7002C2286 /* pickedItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85589411297329C7002C2286 /* pickedItemTableViewCell.xib */; };
 		855DDE1B2996832500E931EE /* CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DDE1A2996832500E931EE /* CustomAlerts.swift */; };
-		856F056029895F65001F0502 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F055F29895F65001F0502 /* HomeScreenViewController.swift */; };
 		856F056229896035001F0502 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F056129896035001F0502 /* DetailViewController.swift */; };
 		85AB0F9329889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0F9129889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodeld */; };
 		85E25E82297351990097C6F3 /* DeviceBarcodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E25E81297351990097C6F3 /* DeviceBarcodeModel.swift */; };
@@ -29,12 +31,13 @@
 /* Begin PBXFileReference section */
 		24F857DEBBEF398BD8F8A0B3 /* Pods-PickiTTicket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickiTTicket.debug.xcconfig"; path = "Target Support Files/Pods-PickiTTicket/Pods-PickiTTicket.debug.xcconfig"; sourceTree = "<group>"; };
 		3E1352004727F3E3A9A30F44 /* Pods-PickiTTicket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickiTTicket.release.xcconfig"; path = "Target Support Files/Pods-PickiTTicket/Pods-PickiTTicket.release.xcconfig"; sourceTree = "<group>"; };
+		8537C03A2A34C1E100503929 /* syringe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = syringe.png; path = ../../../../../Downloads/syringe.png; sourceTree = "<group>"; };
+		8537C03C2A34C1EC00503929 /* barcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = barcode.png; path = ../../../../../Downloads/barcode.png; sourceTree = "<group>"; };
 		8558940E29731932002C2286 /* DeviceBarcodeScannerViewContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBarcodeScannerViewContrller.swift; sourceTree = "<group>"; };
 		85589410297329C7002C2286 /* pickedItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickedItemTableViewCell.swift; sourceTree = "<group>"; };
 		85589411297329C7002C2286 /* pickedItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = pickedItemTableViewCell.xib; sourceTree = "<group>"; };
 		855DDE1A2996832500E931EE /* CustomAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlerts.swift; sourceTree = "<group>"; };
 		855EAFC42974AD680010FAEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		856F055F29895F65001F0502 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		856F056129896035001F0502 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		85AB0F9229889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DeviceBarcodeModelDataModel.xcdatamodel; sourceTree = "<group>"; };
 		85E25E81297351990097C6F3 /* DeviceBarcodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBarcodeModel.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8537C0402A34C38700503929 /* DZNEmptyDataSet in Frameworks */,
 				8046AF31898D29C954C0853B /* Pods_PickiTTicket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,7 +102,6 @@
 		856F055C29895AD6001F0502 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				856F055F29895F65001F0502 /* HomeScreenViewController.swift */,
 				85F4040A2971A0BB00EC5EDB /* DeviceBarcodeListViewController.swift */,
 				8558940E29731932002C2286 /* DeviceBarcodeScannerViewContrller.swift */,
 				856F056129896035001F0502 /* DetailViewController.swift */,
@@ -134,6 +137,8 @@
 				85F404082971A0BB00EC5EDB /* SceneDelegate.swift */,
 				85F4040F2971A0BD00EC5EDB /* Assets.xcassets */,
 				85F404142971A0BD00EC5EDB /* Info.plist */,
+				8537C03A2A34C1E100503929 /* syringe.png */,
+				8537C03C2A34C1EC00503929 /* barcode.png */,
 			);
 			path = PickiTTicket;
 			sourceTree = "<group>";
@@ -164,6 +169,9 @@
 			dependencies = (
 			);
 			name = PickiTTicket;
+			packageProductDependencies = (
+				8537C03F2A34C38700503929 /* DZNEmptyDataSet */,
+			);
 			productName = PickiTTicket;
 			productReference = 85F404032971A0BB00EC5EDB /* PickiTTicket.app */;
 			productType = "com.apple.product-type.application";
@@ -192,6 +200,9 @@
 				Base,
 			);
 			mainGroup = 85F403FA2971A0BB00EC5EDB;
+			packageReferences = (
+				8537C03E2A34C38700503929 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */,
+			);
 			productRefGroup = 85F404042971A0BB00EC5EDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -208,7 +219,9 @@
 			files = (
 				85F404132971A0BD00EC5EDB /* LaunchScreen.storyboard in Resources */,
 				85F404102971A0BD00EC5EDB /* Assets.xcassets in Resources */,
+				8537C03D2A34C1EC00503929 /* barcode.png in Resources */,
 				85589413297329C7002C2286 /* pickedItemTableViewCell.xib in Resources */,
+				8537C03B2A34C1E100503929 /* syringe.png in Resources */,
 				85F4040E2971A0BB00EC5EDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,7 +286,6 @@
 				85F404092971A0BB00EC5EDB /* SceneDelegate.swift in Sources */,
 				85E25E84297351AC0097C6F3 /* DeviceBarcodeData.swift in Sources */,
 				8558940F29731932002C2286 /* DeviceBarcodeScannerViewContrller.swift in Sources */,
-				856F056029895F65001F0502 /* HomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +437,6 @@
 				DEVELOPMENT_TEAM = 5YDCT984CV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PickiTTicket/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "\"camera permission test\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -455,7 +466,6 @@
 				DEVELOPMENT_TEAM = 5YDCT984CV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PickiTTicket/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "\"camera permission test\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -496,6 +506,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8537C03E2A34C38700503929 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dzenbot/DZNEmptyDataSet";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8537C03F2A34C38700503929 /* DZNEmptyDataSet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8537C03E2A34C38700503929 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */;
+			productName = DZNEmptyDataSet;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		85AB0F9129889AD00022FADA /* DeviceBarcodeModelDataModel.xcdatamodeld */ = {
